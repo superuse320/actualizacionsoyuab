@@ -1,0 +1,33 @@
+<ion-content>
+  <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="search()">
+  </ion-searchbar>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-content>
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Colegio</th>
+                    <th>Estudiantes</th>
+                    <th>Puntaje</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let colegio of filteredLista1; let i = index">
+                    <td>{{ colegio.name }}</td>
+                    <td>{{ colegio.total_students }}</td>
+                    <td>{{ colegio.score }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

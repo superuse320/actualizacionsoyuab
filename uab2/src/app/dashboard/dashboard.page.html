@@ -1,0 +1,76 @@
+
+<ion-content [fullscreen]="true">
+
+
+
+  <nav [ngClass]="{'expanded': navExpanded}">
+    <ul>
+      <li>
+       <div href="" class="logo" (click)="toggleNav()">
+       <img src="assets/imgs/recursos/iconouab3.svg" alt="">
+        <span class="nav-item">MENU</span>
+       </div>
+      </li>
+
+      <li>
+        <a >
+          <ion-icon class="fas " name="school"  clickable (click)="principal()" ></ion-icon>
+          <span class="nav-item">Principal</span>
+        </a>
+      </li>
+      <li *ngIf="hasResponseSchool">
+        <a>
+          <ion-icon class="fas" name="school" clickable (click)="miscolegios()"></ion-icon>
+          <span class="nav-item">Colegios</span>
+        </a>
+      </li>
+      <li  *ngIf="hasResponseMYSchool">
+        <a >
+          <ion-icon class="fas " name="school" clickable (click)="estudiantes()" ></ion-icon>
+          <span *ngIf="hasRol === 'Director'" class="nav-item">Mis Estudiantes</span>
+          <span *ngIf="hasRol !== 'Director'" class="nav-item">Estudiantes</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="">
+          <ion-icon class="fas " name="document"></ion-icon>
+          <span class="nav-item">Retos Digitales</span>
+        </a>
+      </li>
+      <li>
+        <a href="">
+          <ion-icon class="fas " name="document"></ion-icon>
+          <span class="nav-item">Pedidos de Oracion</span>
+        </a>
+      </li>
+
+
+
+
+
+
+
+
+
+
+    </ul>
+  </nav>
+
+   <ng-container *ngIf="cardContent === miscolegiosContent">
+    <ng-container *ngComponentOutlet="miscolegiosContent"  [@cardAnimation]></ng-container>
+  </ng-container>
+  <ng-container *ngIf="cardContent === principalContent">
+    <ng-container *ngComponentOutlet=" principalContent"  [@cardAnimation]></ng-container>
+
+  </ng-container>
+  <ng-container *ngIf="cardContent === estudiantesContent">
+    <ng-container *ngComponentOutlet=" estudiantesContent"  [@cardAnimation]></ng-container>
+
+  </ng-container>
+  </ion-content>
+
+
+
+
+

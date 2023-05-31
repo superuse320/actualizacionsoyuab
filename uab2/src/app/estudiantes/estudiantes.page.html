@@ -1,0 +1,66 @@
+
+
+
+
+<ion-content *ngIf="isLoading; else contentLoaded">
+
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card class="center-content" >
+          <ion-card-content  >
+            <ion-spinner></ion-spinner>
+            <p>Cargado estudiantess...</p>
+          </ion-card-content>
+        </ion-card>
+
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ng-template #contentLoaded>
+<ion-content>
+
+
+  <ion-grid>
+    <ion-row>
+      <ion-col> 
+
+        <ion-card>
+
+          <ion-card-content>
+            <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="search()" placeholder="Buscar">
+            </ion-searchbar>
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+
+                    <th>Nombre</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let estudiantes of filteredLista1; let i = index" (click)="showEstudiantes(estudiantes)">
+                    <td>{{ estudiantes.
+               first_name
+
+                    }}</td>
+
+
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </ion-card-content>
+
+        </ion-card>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+</ng-template>

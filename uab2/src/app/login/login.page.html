@@ -1,0 +1,52 @@
+
+<ion-content>
+  <div class="image-container"></div>
+  <ion-grid>
+    <ion-row>
+      <ion-col class="ion-text-center" >
+
+        <img src="../../assets/imgs/recursos/colecamp.svg" alt="Título del login" width="80%" height="80%"  >
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="ion-padding">
+        <form  #logueoForm="ngForm" novalidate id="#form">
+          <div class="ion-align-items-start">
+            <ion-label class="textos-login" position="floating" class="" >Usuario</ion-label>
+            <ion-item   class="ion-margin-bottom" style="border: 2px solid #30a9ea; ">
+              <ion-input  type="text" style="color:white"   [(ngModel)]="logueo.user.valor"
+              name="user"
+              type="text"
+              #user="ngModel"
+              required></ion-input>
+               <p>
+                  <ion-text
+                    color="danger"
+                    [hidden]="logueo.user.validez == '' || !submitted"
+                    >{{ logueo.user.validez }}</ion-text
+                  >
+                </p>
+            </ion-item>
+          </div>
+          <div class="ion-align-items-start">
+            <ion-label class="textos-login" position="floating" class="">Contraseña</ion-label>
+            <ion-item class="ion-margin-bottom" style="border: 2px solid #30a9ea; ">
+              <ion-input type="password" style="color:white"  [(ngModel)]="logueo.pass.valor"
+              name="pass"
+              #pass="ngModel"
+              required
+              type="password" ></ion-input>
+            </ion-item>
+          </div>
+          <div class="ion-text-center my-button">
+            <ion-button size="medium" style="border: none;"   (click)="ingresar(logueoForm)">Iniciar sesión</ion-button>
+          </div>
+          <div class="ion-text-center">
+
+     
+          </div>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
